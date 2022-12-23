@@ -42,8 +42,7 @@ class TodoistTask(BaseModel):
         if (due := data.get("due", None)) is not None:
             self.due_date_utc_timestamp = int(parse(due["date"]).timestamp())
         if (completed_at := data.get("completed_at", None)) is not None:
-            self.completed_at_utc_timestamp = int(
-                parse(completed_at).timestamp())
+            self.completed_at_utc_timestamp = int(parse(completed_at).timestamp())
 
     class Config:
         extra = Extra.allow
