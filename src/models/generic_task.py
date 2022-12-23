@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import IntEnum, auto
 
-from models.todoist_task import TodoistTask
+from models.todoist import TodoistTask
 
 
 class TaskState(IntEnum):
@@ -16,13 +16,14 @@ class TaskState(IntEnum):
 
 @dataclass
 class GenericTask:
-    todoist_task_id: int
+    todoist_task_id: str
     content: str
     priority: int
     state: TaskState
     is_recurring: bool
     due_date_utc_timestamp: int | None
     habitica_task_id: str | None = None
+    completed_at: str | None = None
 
     def __post_init__(self):
         if not isinstance(self.state, TaskState):
@@ -36,5 +37,5 @@ class GenericTask:
             priority=todoist_task.priority,
             state=task_state,
             due_date_utc_timestamp=todoist_task.due_date_utc_timestamp,
-            is_recurring=bool(todoist_task.due and todoist_task.due["is_recurring"]),
+            is_recurring=bool(todoist_task.due and todoist_task.due.is_recurring),
         )
