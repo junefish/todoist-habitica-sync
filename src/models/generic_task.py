@@ -31,12 +31,14 @@ class GenericTask:
             self.state = TaskState(self.state)
 
     @staticmethod
-    def from_todoist_task(todoist_task: TodoistTask, task_state: TaskState) -> GenericTask:
+    def from_todoist_task(todoist_task: TodoistTask,
+                          task_state: TaskState) -> GenericTask:
         return GenericTask(
             todoist_task_id=todoist_task.id,
             content=todoist_task.content,
             priority=todoist_task.priority,
             state=task_state,
             due_date_utc_timestamp=todoist_task.due_date_utc_timestamp,
-            is_recurring=bool(todoist_task.due and todoist_task.due.is_recurring),
+            is_recurring=bool(todoist_task.due
+                              and todoist_task.due.is_recurring),
         )
