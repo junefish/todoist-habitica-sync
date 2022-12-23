@@ -1,16 +1,19 @@
 import logging
 import time
-from os.path import dirname, join
+from os.path import dirname
+from os.path import join
 from typing import Final
 
-from requests import HTTPError
-
-from config import TODOIST_PRIORITY_TO_HABITICA_DIFFICULTY, get_settings
+from config import get_settings
+from config import TODOIST_PRIORITY_TO_HABITICA_DIFFICULTY
 from delay import DelayTimer
-from habitica_api import HabiticaAPI, HabiticaAPIHeaders
-from models.generic_task import GenericTask, TaskState
+from habitica_api import HabiticaAPI
+from habitica_api import HabiticaAPIHeaders
+from models.generic_task import GenericTask
+from models.generic_task import TaskState
 from models.habitica_task import HabiticaTask
 from models.todoist import TodoistTask
+from requests import HTTPError
 from tasks_cache import TasksCache
 from todoist_api import TodoistAPI
 

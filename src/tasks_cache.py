@@ -1,12 +1,15 @@
 import logging
 from dataclasses import asdict
-from typing import Iterator, Optional
-
-from tinydb import Query, TinyDB, where
+from typing import Iterator
+from typing import Optional
 
 from config import get_settings
-from models.generic_task import GenericTask, TaskState
+from models.generic_task import GenericTask
+from models.generic_task import TaskState
 from models.todoist import TodoistTask
+from tinydb import Query
+from tinydb import TinyDB
+from tinydb import where
 
 
 class TasksCache:

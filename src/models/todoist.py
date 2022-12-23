@@ -2,9 +2,11 @@
 
 See Also: https://developer.todoist.com/sync/v9/#read-resources
 """
-
 from dateutil.parser import parse
-from pydantic import BaseModel, Extra, Field, validator
+from pydantic import BaseModel
+from pydantic import Extra
+from pydantic import Field
+from pydantic import validator
 
 
 class TodoistDue(BaseModel):

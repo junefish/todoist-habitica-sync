@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from enum import IntEnum, auto
+from enum import auto
+from enum import IntEnum
 
 from models.todoist import TodoistTask
 
